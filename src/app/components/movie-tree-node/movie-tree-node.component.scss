@@ -1,0 +1,15 @@
+.movie-tree-node{
+    display: flex;
+    padding-left: 2rem;
+    flex-direction: column;
+
+    &__node-content{
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        .material-icons{
+            cursor: pointer;
+        }
+    }
+}
