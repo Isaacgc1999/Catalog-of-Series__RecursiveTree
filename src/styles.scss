@@ -1,12 +1,19 @@
 @use "colors/colors.scss";
+
+@font-face {
+  font-family: 'Mayonice';
+  src: url('/fonts/Mayonice.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 p {
-    font-family: Lato;
+    font-family: 'Inter', sans-serif;
 }
 
 /* Global Styles */
 
 * {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     color: var(--app-header-font-grey-color);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -30,6 +37,8 @@ p {
   
   h1 {
     font-size: 32px;
+    font-family: 'Mayonice', sans-serif;
+    font-weight: bold;
   }
   
   h2 {
@@ -41,7 +50,7 @@ p {
   }
   
   p {
-    font-size: 14px;
+    font-size: 18px;
   }
   
   /* Hyperlink */

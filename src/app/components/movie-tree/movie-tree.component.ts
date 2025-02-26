@@ -20,7 +20,7 @@ export class MovieTreeComponent {
   searchQuery: string = '';
   moviesWithTree: NodeTree[] = [];
 
-  filterCatalogueService = inject(FilterCatalogueService);
+  readonly filterCatalogueService = inject(FilterCatalogueService);
 
   constructor() {
     this.createTree();

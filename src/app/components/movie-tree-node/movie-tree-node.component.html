@@ -2,22 +2,24 @@
     <div class="movie-tree-node__node-content">
         <i (click)="toggleExpand()" class="material-icons">arrow_right</i>
         
-        <div class="movie-tree-node__node-content__name">
+        <div class="movie-tree-node__node-content__name" (click)="openNodeDetails()">
             {{ data.nodeName }}
         </div>        
         <i class="material-icons">{{ data.icon }}</i>
     </div>
     @if(isExpanded){
-        <div class="movie-tree-node__node-children">
-            <app-movie-tree-node
-            *ngFor="let child of data.node"
-            [data]="child">
-            </app-movie-tree-node>
-        </div>
-    }
-    @if(noData){
-        <div class="movie-tree-node__node-children">
-            No data
-        </div>
+        @if(data.node && data.node.length > 0){
+            <div class="movie-tree-node__node-children">
+                <app-movie-tree-node
+                *ngFor="let child of data.node"
+                [data]="child">
+                </app-movie-tree-node>
+            </div>
+        }
+        @else{
+            <div class="movie-tree-node__node-children">
+                No data
+            </div>
+        }
     }
 </div>
