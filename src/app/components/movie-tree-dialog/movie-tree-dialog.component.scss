@@ -1,6 +1,28 @@
 .movie-tree-dialog{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 3rem;
     gap: 1rem;
+    color: var(--app-font-black-color);
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    
+    &__photo{
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+    }
+
+    &__props{
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .material-icons{
+        color: var(--app-font-black-color);
+    }
 }

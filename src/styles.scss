@@ -22,6 +22,7 @@ p {
   
   body {
     margin: 0;
+    background-color: var(--app-blue-background-color);
   }
   
   .container {
@@ -153,3 +154,7 @@ p {
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-dialog-container{
+  color: var(--app-blue-background-color);
+}

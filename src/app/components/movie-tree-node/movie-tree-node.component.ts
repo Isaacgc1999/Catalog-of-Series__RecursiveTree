@@ -34,6 +34,11 @@ export class MovieTreeNodeComponent {
       data: this.data,
       height: '300px',
       width: '450px',
+      panelClass: 'custom-dialog-container'
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      dialogRef.close();
     });
   }
 }

@@ -1,8 +1,5 @@
 <div class="movie-tree">
-  <div class="movie-tree__top">
-    <p>Movie tree</p>
-    <input placeholder="Search movie..."  [(ngModel)]="searchQuery"/>
-  </div>
+  <input class="movie-tree__top" placeholder="Search movie..."  [(ngModel)]="searchQuery"/>
   <div class="movie-tree__body">
     @for(movie of filterCatalogue; track movie.id) {
       <app-movie-tree-node [data]="movie"></app-movie-tree-node>
