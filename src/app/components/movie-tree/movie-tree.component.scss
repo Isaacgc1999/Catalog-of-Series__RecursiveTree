@@ -38,4 +38,13 @@
             flex-direction: column;
         }
     }
+
+    &__add-node{
+        display: flex;
+        gap: 0.4rem;
+
+        .top{
+            border-radius: 10px;
+        }
+    }
 }

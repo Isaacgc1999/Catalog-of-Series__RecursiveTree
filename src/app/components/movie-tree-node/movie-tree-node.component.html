@@ -20,8 +20,8 @@
                 </app-movie-tree-node>
             </div>
             <div class="movie-tree-node__add-node">
-                <input class="movie-tree__top" placeholder="Add new node..."  [(ngModel)]="newNodeName"/>
-                <button (click)="addNode(newNodeName)">Add Node</button>
+                <input class="top" placeholder="Add new node..."  [(ngModel)]="newNodeName"/>
+                <button (click)="addNode(newNodeName)" width="">Add Node</button>
             </div>
         }
         @else{
@@ -29,7 +29,7 @@
                 No data
             </div>
             <div class="movie-tree-node__add-node">
-                <input class="movie-tree__top" placeholder="Add new node..."  [(ngModel)]="newNodeName"/>
+                <input class="top" placeholder="Add new node..."  [(ngModel)]="newNodeName"/>
                 <button (click)="addNode(newNodeName)">Add Node</button>
             </div>
         }

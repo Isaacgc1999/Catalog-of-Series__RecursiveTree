@@ -45,4 +45,14 @@
         gap: 0.4rem;
         color: var(--app-font-white-pure-color);
     } 
+
+    &__add-node{
+        display: flex;
+        gap: 0.4rem;
+        padding-left: 1rem;
+
+        .top{
+            border-radius: 10px;;
+        }
+    }
 }
