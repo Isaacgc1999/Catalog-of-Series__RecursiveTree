@@ -1,11 +1,14 @@
 <div class="movie-tree-node">
-    <div class="movie-tree-node__node-content">
-        <i (click)="toggleExpand()" class="material-icons">arrow_right</i>
-        
-        <div class="movie-tree-node__node-content__name" (click)="openNodeDetails()">
-            {{ data.nodeName }}
-        </div>        
-        <i class="material-icons">{{ data.icon }}</i>
+    <div class="movie-tree-node__group">
+        <div class="movie-tree-node__group__node-content">
+            <i (click)="toggleExpand()" class="material-icons">arrow_right</i>
+            
+            <div class="movie-tree-node__group__node-content__name" (click)="openNodeDetails()">
+                {{ data.nodeName }}
+            </div>        
+            <i class="material-icons">{{ data.icon }}</i>
+        </div>
+        <button class="movie-tree-node__group__node-actions" (click)="deleteNode()">Delete</button>
     </div>
     @if(isExpanded){
         @if(data.node && data.node.length > 0){
@@ -15,10 +18,18 @@
                 [data]="child">
                 </app-movie-tree-node>
             </div>
+            <div class="movie-tree-node__add-node">
+                <input class="movie-tree__top" placeholder="Add new node..."  [(ngModel)]="newNodeName"/>
+                <button (click)="addNode(newNodeName)">Add Node</button>
+            </div>
         }
         @else{
             <div class="movie-tree-node__node-children">
                 No data
+            </div>
+            <div class="movie-tree-node__add-node">
+                <input class="movie-tree__top" placeholder="Add new node..."  [(ngModel)]="newNodeName"/>
+                <button (click)="addNode(newNodeName)">Add Node</button>
             </div>
         }
     }

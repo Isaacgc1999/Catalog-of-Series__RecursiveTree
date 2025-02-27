@@ -1,28 +1,29 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { NodeTree } from '../../models/movies.model';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import {
-  MAT_DIALOG_DATA,
   MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
 } from '@angular/material/dialog';
 import { MovieTreeDialogComponent } from '../movie-tree-dialog/movie-tree-dialog.component';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-tree-node',
-  imports: [CommonModule, MatIconModule, MovieTreeNodeComponent],
+  imports: [CommonModule,
+    MatIconModule,
+    MovieTreeNodeComponent,
+    ReactiveFormsModule,
+    FormsModule],
   templateUrl: './movie-tree-node.component.html',
   styleUrl: './movie-tree-node.component.scss',
   standalone: true
 })
 export class MovieTreeNodeComponent {
   @Input() data!: NodeTree;
+  @Output() removeNode = new EventEmitter<number>();
   isExpanded: boolean = false;
+  newNodeName: string = '';
   readonly dialog = inject(MatDialog);
 
   toggleExpand() {
@@ -40,5 +41,23 @@ export class MovieTreeNodeComponent {
     dialogRef.afterClosed().subscribe(() => {
       dialogRef.close();
     });
+  }
+
+  addNode(newNodename: string): void{
+    if(this.data?.node){
+      console.log(this.data?.node?.length + 1);
+
+      this.data?.node?.push({
+        id: this.data.node.length + 1,
+        nodeName: newNodename,
+        node: [],
+        icon: this.data.icon,
+        expanded: false
+    });
+    }
+  }
+
+  deleteNode(): void{
+    this.removeNode.emit(this.data.id);
   }
 }

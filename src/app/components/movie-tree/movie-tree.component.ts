@@ -50,4 +50,17 @@ export class MovieTreeComponent {
   get filterCatalogue(): NodeTree[] {
     return this.filterCatalogueService.filterTree(this.moviesWithTree, this.searchQuery);
   }
+
+  removeNode(id: number): NodeTree[] {
+    return this.moviesWithTree.reduce((acc: NodeTree[], node) => {
+      if (node.id === id) {
+        return acc;
+      }
+      if (node.node) {
+        node.node = this.removeNode(id);
+      }
+      acc.push(node);
+      return acc;
+    }, []);
+  }
 }
