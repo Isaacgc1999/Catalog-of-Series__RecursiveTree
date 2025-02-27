@@ -16,9 +16,11 @@ import { VERSIONS } from '../../mocks/products.mock';
   styleUrl: './movie-tree.component.scss',
   standalone: true
 })
+
 export class MovieTreeComponent {
   searchQuery: string = '';
   moviesWithTree: NodeTree[] = [];
+  newNodeName: string = '';
 
   readonly filterCatalogueService = inject(FilterCatalogueService);
 
@@ -51,16 +53,22 @@ export class MovieTreeComponent {
     return this.filterCatalogueService.filterTree(this.moviesWithTree, this.searchQuery);
   }
 
-  removeNode(id: number): NodeTree[] {
-    return this.moviesWithTree.reduce((acc: NodeTree[], node) => {
-      if (node.id === id) {
-        return acc;
-      }
-      if (node.node) {
-        node.node = this.removeNode(id);
-      }
-      acc.push(node);
-      return acc;
-    }, []);
+  removeNode(node: NodeTree): void {
+    console.log("ha llegado al padre");
+    const nodeToDelete = this.moviesWithTree.find((n: NodeTree) => n.id === node.id);
+    if (nodeToDelete) {
+      this.moviesWithTree = this.moviesWithTree.filter((n: NodeTree) => n.id !== node.id);
+      console.log(nodeToDelete);
+    }
   }
+
+  addNode(newNodename: string): void{
+      this.moviesWithTree.push({
+        id: this.moviesWithTree.length + 1,
+        nodeName: newNodename,
+        node: [],
+        icon: this.moviesWithTree[0].icon,
+        expanded: false
+    });
+    }
 }

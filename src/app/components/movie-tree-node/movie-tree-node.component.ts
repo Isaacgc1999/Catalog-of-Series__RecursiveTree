@@ -21,7 +21,7 @@ import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 })
 export class MovieTreeNodeComponent {
   @Input() data!: NodeTree;
-  @Output() removeNode = new EventEmitter<number>();
+  @Output() removeNode = new EventEmitter<NodeTree>();
   isExpanded: boolean = false;
   newNodeName: string = '';
   readonly dialog = inject(MatDialog);
@@ -58,6 +58,7 @@ export class MovieTreeNodeComponent {
   }
 
   deleteNode(): void{
-    this.removeNode.emit(this.data.id);
+    console.log("ha llegado al hijo");
+    this.removeNode.emit(this.data);
   }
 }
