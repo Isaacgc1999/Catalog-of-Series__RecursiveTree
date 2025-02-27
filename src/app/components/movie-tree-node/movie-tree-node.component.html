@@ -15,7 +15,8 @@
             <div class="movie-tree-node__node-children">
                 <app-movie-tree-node
                 *ngFor="let child of data.node"
-                [data]="child">
+                [data]="child"
+                (removeNode)="onChildRemove($event)">
                 </app-movie-tree-node>
             </div>
             <div class="movie-tree-node__add-node">

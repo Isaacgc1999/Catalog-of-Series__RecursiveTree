@@ -57,8 +57,13 @@ export class MovieTreeNodeComponent {
     }
   }
 
-  deleteNode(): void{
+  deleteNode(): void {
     console.log("ha llegado al hijo");
     this.removeNode.emit(this.data);
+  }
+
+  onChildRemove(child: NodeTree): void {
+    this.data.node = this.data?.node?.filter(n => n.id !== child.id);
+    this.removeNode.emit(child);
   }
 }

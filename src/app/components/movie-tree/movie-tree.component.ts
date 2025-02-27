@@ -53,13 +53,41 @@ export class MovieTreeComponent {
     return this.filterCatalogueService.filterTree(this.moviesWithTree, this.searchQuery);
   }
 
-  removeNode(node: NodeTree): void {
-    console.log("ha llegado al padre");
-    const nodeToDelete = this.moviesWithTree.find((n: NodeTree) => n.id === node.id);
-    if (nodeToDelete) {
-      this.moviesWithTree = this.moviesWithTree.filter((n: NodeTree) => n.id !== node.id);
-      console.log(nodeToDelete);
-    }
+  // removeNode(nodes: NodeTree[], nodeToRemove: NodeTree): NodeTree[] {
+  //   return this.moviesWithTree.reduce((acc: NodeTree[], node: NodeTree) => {
+  //   if (node.id === nodeToRemove.id && node.parentId === nodeToRemove.parentId) {
+  //     return acc;
+  //   }
+  //   if (node.node) {
+  //     node.node = this.removeNode(node.node, nodeToRemove);
+  //   }
+  //   acc.push(node);
+  //   return acc;
+  // }, []);
+  // }
+
+  removeNode(nodeToDelete: NodeTree): void {
+    // Se inicia la búsqueda en el nivel raíz, donde currentParentId es igual al event.parentId (undefined para nodos raíz)
+    this.moviesWithTree = this.deleteNodeRecursive(this.moviesWithTree, nodeToDelete.id, nodeToDelete.parentId);
+  }
+
+  private deleteNodeRecursive(
+    nodes: NodeTree[],
+    targetId: number,
+    currentParentId: number | undefined
+  ): NodeTree[] {
+    return nodes.reduce((actual: NodeTree[], node) => {
+      // Si este nodo es el que queremos eliminar y su parentId coincide con el del nivel actual, se omite.
+      if (node.id === targetId && node.parentId === currentParentId && node.parentId !== undefined) {
+        return actual;
+      }
+      // Procesa recursivamente los hijos, pasando el id del nodo actual como currentParentId para el siguiente nivel.
+      const updatedChildren = node.node
+        ? this.deleteNodeRecursive(node.node, targetId, node.id)
+        : [];
+        actual.push({ ...node, node: updatedChildren });
+      return actual;
+    }, []);
   }
 
   addNode(newNodename: string): void{
