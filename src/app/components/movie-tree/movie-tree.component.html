@@ -2,7 +2,7 @@
   <input class="movie-tree__top" placeholder="Search movie..."  [(ngModel)]="searchQuery"/>
   <div class="movie-tree__body">
     @for(movie of filterCatalogue; track movie.id) {
-      <app-movie-tree-node [data]="movie" (removeNode)="removeNode($event)"></app-movie-tree-node>
+      <app-movie-tree-node [data]="movie" [completeNode]="moviesWithTree" (removeNode)="removeNode($event)"></app-movie-tree-node>
     }
   </div>
   <div class="movie-tree__add-node">

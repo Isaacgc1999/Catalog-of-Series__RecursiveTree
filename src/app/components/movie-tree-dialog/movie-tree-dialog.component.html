@@ -1,7 +1,19 @@
 <div class="movie-tree-dialog">
-    <img src="https://picsum.photos/200" alt="nodePhoto" class="movie-tree-dialog__photo">
-    <div class="movie-tree-dialog__props">
-        {{data.nodeName}}
-        <i class="material-icons">{{data.icon}}</i>
+    <div class="movie-tree-dialog__first">
+        <img [src]="'https://picsum.photos/200?nocache'+ randomId" alt="nodePhoto" class="movie-tree-dialog__first__photo">
+        <div class="movie-tree-dialog__first__props">
+            {{data.nodeName}}
+            <br>
+            -----------------------
+            <br>
+            {{randomQuote?.quote}}
+            <br><br>
+            {{randomQuote?.author}}
+            
+        </div>
+    </div>
+    
+    <div class="movie-tree-dialog__last">
+        <button class="button" (click)="closeDialog()">Close</button>
     </div>
 </div>

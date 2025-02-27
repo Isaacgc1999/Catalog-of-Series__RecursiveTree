@@ -1,26 +1,38 @@
 .movie-tree-dialog{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 3rem;
-    gap: 1rem;
     color: var(--app-font-black-color);
     overflow: scroll;
+    gap: 3rem;
     
 
     &::-webkit-scrollbar {
         display: none;
     }
+
+    &__first{
+        display: flex;
+        gap: 1rem;
+
+        &__photo{
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+        }
     
-    &__photo{
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
+        &__props{
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
     }
 
-    &__props{
+    &__last{
         display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
+        align-items: end; 
+        justify-content: center;   
     }
 
     .material-icons{

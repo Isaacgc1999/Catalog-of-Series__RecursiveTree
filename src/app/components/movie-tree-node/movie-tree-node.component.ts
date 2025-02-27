@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { NodeTree } from '../../models/movies.model';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,6 +7,7 @@ import {
 } from '@angular/material/dialog';
 import { MovieTreeDialogComponent } from '../movie-tree-dialog/movie-tree-dialog.component';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { NodeAdministrationService } from '../../services/node-administration/node-administration.service';
 
 @Component({
   selector: 'app-movie-tree-node',
@@ -21,10 +22,12 @@ import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 })
 export class MovieTreeNodeComponent {
   @Input() data!: NodeTree;
+  @Input() completeNode!: NodeTree[];
   @Output() removeNode = new EventEmitter<NodeTree>();
   isExpanded: boolean = false;
   newNodeName: string = '';
   readonly dialog = inject(MatDialog);
+  readonly nodeAdministrationService = inject(NodeAdministrationService);
 
   toggleExpand() {
     this.isExpanded = !this.isExpanded;
@@ -35,7 +38,9 @@ export class MovieTreeNodeComponent {
       data: this.data,
       height: '300px',
       width: '450px',
-      panelClass: 'custom-dialog-container'
+      panelClass: 'custom-dialog-container',
+      disableClose: true,  
+      autoFocus: false,
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -44,21 +49,10 @@ export class MovieTreeNodeComponent {
   }
 
   addNode(newNodename: string): void{
-    if(this.data?.node){
-      console.log(this.data?.node?.length + 1);
-
-      this.data?.node?.push({
-        id: this.data.node.length + 1,
-        nodeName: newNodename,
-        node: [],
-        icon: this.data.icon,
-        expanded: false
-    });
-    }
+    this.nodeAdministrationService.addChildNode(this.data, newNodename, this.completeNode);
   }
 
   deleteNode(): void {
-    console.log("ha llegado al hijo");
     this.removeNode.emit(this.data);
   }
 

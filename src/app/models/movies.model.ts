@@ -4,5 +4,10 @@ export interface NodeTree {
     icon: string;
     parentId?: number;
     node?: NodeTree[];
-    expanded: boolean;
+}
+
+export enum IconLevel {
+    MOVIE = 'tv',
+    SEASON = 'auto_stories',
+    EPISODE = 'assignment_returned',
 }
