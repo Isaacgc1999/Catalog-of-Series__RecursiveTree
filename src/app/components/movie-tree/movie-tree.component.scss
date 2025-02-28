@@ -7,6 +7,24 @@
         flex-direction: column;
         gap: 0.6rem;
 
+        &__title{
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--app-font-grey-color);
+            background-color: var(--app-blue-color);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+                text-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+        }
+
         &__top{
             font-size: 13px;
             border-radius: 10px;
@@ -56,11 +74,28 @@
         display: flex;
         flex-direction: column;
         gap: 0.6rem;
+        
         &__title{
             display: flex;
             align-items: center;
             gap: 0.4rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--app-font-grey-color);
+            background-color: var(--app-blue-color);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+                text-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
         }
+
         &__input{
             font-size: 13px;
             border-radius: 10px;
@@ -90,6 +125,4 @@
             }
         }
     }
-
-    
 }
