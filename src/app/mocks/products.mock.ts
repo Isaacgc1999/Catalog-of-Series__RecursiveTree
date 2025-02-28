@@ -23,12 +23,14 @@ export const products = [
         nodeName: 'PRUEBA 1',
         id: 1,
         icon: 'assignment_returned',
-        parentId: 1
+        parentId: 1,
+        level: 3
       },
       {
         nodeName: 'PRUEBA 2',
         id: 2,
         icon: 'assignment_returned',
-        parentId: 1
+        parentId: 1,
+        level: 3
       },
     ];

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NodeTree } from '../../models/movies.model';
+import { IconLevel, NodeTree } from '../../models/movies.model';
 import { MOVIES } from '../../mocks/movies.mock';
 import { SEASONS } from '../../mocks/seasons.mock';
 import { EPISODES } from '../../mocks/episodes.mock';
@@ -47,8 +47,19 @@ export class NodeAdministrationService {
         id: node.length + 1,
         nodeName: newNodename,
         node: [],
-        icon: 'new_releases'
+        icon: IconLevel[0],
+        level: this.assignLevels(node)
     });
+    }
+
+    assignLevels(nodes: NodeTree[], currentLevel: number = 0): number {
+      nodes.forEach(node => {
+        node.level = currentLevel;
+        if (node.node && node.node.length > 0) {
+          this.assignLevels(node.node, currentLevel + 1);
+        }
+      });
+      return currentLevel;
     }
 
     countAllNodes(node: NodeTree[]): number {
@@ -76,7 +87,8 @@ export class NodeAdministrationService {
           id: count + 1,
           nodeName: newNodename,
           node: [],
-          icon: data.icon
+          icon: IconLevel[data.level + 1],
+          level: data.level + 1
       });
       }
     }

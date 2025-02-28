@@ -57,7 +57,7 @@ export class MovieTreeNodeComponent {
   }
 
   onChildRemove(child: NodeTree): void {
-    this.data.node = this.data?.node?.filter(n => n.id !== child.id);
+    // this.data.node = this.data?.node?.filter(n => n.id !== child.id);
     this.removeNode.emit(child);
   }
 }

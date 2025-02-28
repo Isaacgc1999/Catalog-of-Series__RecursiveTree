@@ -3,11 +3,12 @@ export interface NodeTree {
     nodeName: string;
     icon: string;
     parentId?: number;
+    level: number;
     node?: NodeTree[];
 }
 
-export enum IconLevel {
-    MOVIE = 'tv',
-    SEASON = 'auto_stories',
-    EPISODE = 'assignment_returned',
-}
+export const IconLevel: { [key: number]: string } = {
+    0: 'tv',
+    1: 'auto_stories', 
+    2: 'assignment_return', 
+};

@@ -16,8 +16,11 @@ import { NodeAdministrationService } from '../../services/node-administration/no
 
 export class MovieTreeComponent {
   searchQuery: string = '';
+  searchQuery2: string = '';
   moviesWithTree: NodeTree[] = [];
+  moviesWithTree2: NodeTree[] = [];
   newNodeName: string = '';
+  newNodeName2: string = '';
 
   readonly filterCatalogueService = inject(FilterCatalogueService);
   readonly nodeAdministrationService = inject(NodeAdministrationService);
@@ -29,12 +32,15 @@ export class MovieTreeComponent {
   get filterCatalogue(): NodeTree[] {
     return this.filterCatalogueService.filterTree(this.moviesWithTree, this.searchQuery);
   }
+  get filterCustomCatalogue(): NodeTree[] {
+    return this.filterCatalogueService.filterTree(this.moviesWithTree2, this.searchQuery2);
+  }
 
   removeNode(nodeToDelete: NodeTree): void {
     this.moviesWithTree = this.nodeAdministrationService.deleteNodeRecursive(this.moviesWithTree, nodeToDelete.id, nodeToDelete.parentId);
   }
 
-  addNode(newNodename: string): void {
-    this.nodeAdministrationService.addNode(this.moviesWithTree, newNodename);
+  addNode(newNodename: string, node: NodeTree[]): void {
+    this.nodeAdministrationService.addNode(node, newNodename);
   } 
 }
