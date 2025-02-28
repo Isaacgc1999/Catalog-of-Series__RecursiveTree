@@ -9,6 +9,7 @@ import { EPISODES } from '../../mocks/episodes.mock';
 })
 export class NodeAdministrationService {
 
+  uniqueIndex: number = 0;
   constructor() { }
 
   createTree(node: NodeTree[]): NodeTree[]{
@@ -21,30 +22,22 @@ export class NodeAdministrationService {
           }))
       }));
     }
-
+    
     deleteNodeRecursive(
-      nodes: NodeTree[],
-      targetId: number,
-      currentParentId: number | undefined
+      nodes: NodeTree[], 
+      targetId: number
     ): NodeTree[] {
       return nodes
-    .map((node) => {
-      // Si el nodo es el que queremos eliminar y pertenece al padre correcto, lo excluimos
-      if (node.id === targetId && node.parentId === currentParentId) {
-        return null;
-      }
-      // Si tiene hijos, aplicamos la recursión, pero si no, conservamos la referencia
-      const updatedChildren = node.node
-        ? this.deleteNodeRecursive(node.node, targetId, node.id)
-        : node.node; // <-- Mantenemos undefined si no tenía hijos
-      return { ...node, node: updatedChildren };
-    })
-    .filter(Boolean) as NodeTree[];
+        .filter(node => node.id !== targetId)
+        .map(node => ({
+          ...node,
+          node: this.deleteNodeRecursive(node.node ?? [], targetId)
+      }));
     }
 
     addNode(node: NodeTree[], newNodename: string): void{
       node.push({
-        id: node.length + 1,
+        id: this.uniqueIndex++,
         nodeName: newNodename,
         node: [],
         icon: IconLevel[0],
@@ -52,7 +45,21 @@ export class NodeAdministrationService {
     });
     }
 
-    assignLevels(nodes: NodeTree[], currentLevel: number = 0): number {
+    addChildNode(data: NodeTree, newNodename: string, completeNode: NodeTree[]): void{
+      if(data?.node){
+        
+        data?.node?.push({
+          id: this.uniqueIndex++,
+          nodeName: newNodename,
+          node: [],
+          icon: IconLevel[data.level + 1],
+          level: data.level + 1
+      });
+      }
+    }
+
+    //PRIVATE METHODS
+    private assignLevels(nodes: NodeTree[], currentLevel: number = 0): number {
       nodes.forEach(node => {
         node.level = currentLevel;
         if (node.node && node.node.length > 0) {
@@ -60,36 +67,5 @@ export class NodeAdministrationService {
         }
       });
       return currentLevel;
-    }
-
-    countAllNodes(node: NodeTree[]): number {
-      if (!node || !Array.isArray(node)) {
-        return 0; // Retorna 0 si el nodo es inválido
-      }
-      let count = 0;
-      node.forEach(node => {
-        // Cuenta el nodo actual.
-        count++;
-        // Si tiene hijos, los recorre recursivamente y suma su cantidad.
-        if (node.node && node.node.length > 0) {
-          count += this.countAllNodes(node.node);
-        }
-      });
-      return count;
-    }
-    
-
-    addChildNode(data: NodeTree, newNodename: string, completeNode: NodeTree[]): void{
-      let count = this.countAllNodes(completeNode);
-      if(data?.node){
-        
-        data?.node?.push({
-          id: count + 1,
-          nodeName: newNodename,
-          node: [],
-          icon: IconLevel[data.level + 1],
-          level: data.level + 1
-      });
-      }
     }
 }

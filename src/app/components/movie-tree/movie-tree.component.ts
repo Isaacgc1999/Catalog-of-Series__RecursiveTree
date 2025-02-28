@@ -37,10 +37,16 @@ export class MovieTreeComponent {
   }
 
   removeNode(nodeToDelete: NodeTree): void {
-    this.moviesWithTree = this.nodeAdministrationService.deleteNodeRecursive(this.moviesWithTree, nodeToDelete.id, nodeToDelete.parentId);
+    console.log(nodeToDelete);
+    this.moviesWithTree = this.nodeAdministrationService.deleteNodeRecursive(this.moviesWithTree, nodeToDelete.id);
+  }
+  removeCustomNode(nodeToDelete: NodeTree): void {
+    console.log(nodeToDelete);
+    this.moviesWithTree2 = this.nodeAdministrationService.deleteNodeRecursive(this.moviesWithTree2, nodeToDelete.id);
   }
 
   addNode(newNodename: string, node: NodeTree[]): void {
     this.nodeAdministrationService.addNode(node, newNodename);
+    this.newNodeName = '';
   } 
 }

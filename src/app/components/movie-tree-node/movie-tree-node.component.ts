@@ -8,6 +8,7 @@ import {
 import { MovieTreeDialogComponent } from '../movie-tree-dialog/movie-tree-dialog.component';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { NodeAdministrationService } from '../../services/node-administration/node-administration.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-movie-tree-node',
@@ -53,11 +54,13 @@ export class MovieTreeNodeComponent {
   }
 
   deleteNode(): void {
+    console.log(this.data);
     this.removeNode.emit(this.data);
   }
 
   onChildRemove(child: NodeTree): void {
-    // this.data.node = this.data?.node?.filter(n => n.id !== child.id);
+    console.log(this.data);
+    this.data.node = this.data?.node?.filter(n => n.id !== child.id);
     this.removeNode.emit(child);
   }
 }

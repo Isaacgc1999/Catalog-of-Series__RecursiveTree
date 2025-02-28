@@ -17,7 +17,7 @@
     <input class="movie-tree__custom__input" placeholder="Search movie..."  [(ngModel)]="searchQuery2"/>
     <div class="movie-tree__custom__body">
       @for(movie of filterCustomCatalogue; track movie.id) {
-        <app-movie-tree-node [data]="movie" [completeNode]="moviesWithTree2" (removeNode)="removeNode($event)"></app-movie-tree-node>
+        <app-movie-tree-node [data]="movie" [completeNode]="moviesWithTree2" (removeNode)="removeCustomNode($event)"></app-movie-tree-node>
       }
       <div class="movie-tree__custom__body__add">
         <input class="top" placeholder="Add new node..."  [(ngModel)]="newNodeName2"/>
