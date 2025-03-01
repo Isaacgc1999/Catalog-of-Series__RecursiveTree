@@ -2,7 +2,9 @@
     <div class="movie-tree-dialog__first">
         <img [src]="'https://picsum.photos/200?nocache'+ randomId" alt="nodePhoto" class="movie-tree-dialog__first__photo">
         <div class="movie-tree-dialog__first__props">
-            {{data.nodeName}}
+            {{data.nodeName}}<br>
+            Parent Id: {{data.parentId}}
+            Level: {{data.level}}
             <br>
             -----------------------
             <br>
