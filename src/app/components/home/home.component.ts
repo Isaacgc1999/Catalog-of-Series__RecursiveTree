@@ -10,5 +10,4 @@ import { TopBarComponent } from "../top-bar/top-bar.component";
   standalone: true
 })
 export class HomeComponent {
-
 }

@@ -15,9 +15,7 @@ export class FilterCatalogueService {
     const queryToLower = searchQuery.toLowerCase();
   
     return nodes.reduce((filtered: NodeTree[], node) => {
-      // Filtra recursivamente los hijos si existen.
       const filteredChildren = node.node ? this.filterTree(node.node, queryToLower) : [];
-      // Si el nodo coincide o tiene hijos que coinciden, se incluye.
       if (node.nodeName.toLowerCase().includes(queryToLower) || filteredChildren.length > 0) {
         filtered.push({ ...node, node: filteredChildren });
       }
