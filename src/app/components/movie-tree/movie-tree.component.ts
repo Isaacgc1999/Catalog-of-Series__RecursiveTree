@@ -8,7 +8,9 @@ import { NodeAdministrationService } from '../../services/node-administration/no
 
 @Component({
   selector: 'app-movie-tree',
-  imports: [CommonModule, MovieTreeNodeComponent, FormsModule],
+  imports: [CommonModule,
+    MovieTreeNodeComponent,
+    FormsModule],
   templateUrl: './movie-tree.component.html',
   styleUrl: './movie-tree.component.scss',
   standalone: true
