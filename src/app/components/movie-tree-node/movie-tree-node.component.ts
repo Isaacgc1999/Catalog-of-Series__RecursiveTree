@@ -6,9 +6,9 @@ import {
   MatDialog,
 } from '@angular/material/dialog';
 import { MovieTreeDialogComponent } from '../movie-tree-dialog/movie-tree-dialog.component';
-import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NodeAdministrationService } from '../../services/node-administration/node-administration.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShowIfIsNotExampleDirective } from '../../directives/show-if-is-not-example.directive';
 
 @Component({
   selector: 'app-movie-tree-node',
@@ -16,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MovieTreeNodeComponent,
     ReactiveFormsModule,
-    FormsModule],
+    FormsModule,
+    ShowIfIsNotExampleDirective],
   templateUrl: './movie-tree-node.component.html',
   styleUrl: './movie-tree-node.component.scss',
   standalone: true
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 export class MovieTreeNodeComponent {
   @Input() data!: NodeTree;
   @Input() completeNode!: NodeTree[];
+  @Input() isExample: boolean = false;
   @Output() removeNode = new EventEmitter<NodeTree>();
   isExpanded: boolean = false;
   newNodeName: string = '';
