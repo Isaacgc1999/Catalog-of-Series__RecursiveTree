@@ -65,8 +65,8 @@ Make sure you have Node.js and Angular CLI installed.
 
 ![image](https://github.com/user-attachments/assets/681c6778-ab2e-4d3a-a4aa-4998d8e2c222)
 
-
-
+# 4️⃣ LINK TO STACKBLITZ (PLAYGROUND)
+https://stackblitz.com/~/github.com/Isaacgc1999/Catalog-of-Series__RecursiveTree 
 
 # 🤝 Contributions
 Pull requests are welcome! If you have ideas or improvements, feel free to open an issue or fork the project.
