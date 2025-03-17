@@ -12,6 +12,8 @@ This app allows you to manage a series catalog in a visual and interactive way u
 
 🔹 Nodes cannot be added or deleted.
 
+🔹 Detailed view of each title, season or episode including general information.
+
 ✅ Custom Tree
 
 🔹 Build your own catalog from scratch.
@@ -20,6 +22,8 @@ This app allows you to manage a series catalog in a visual and interactive way u
 
 🔹 Ability to search content within the tree.
 
+🔹 Detailed view of each title, season or episode including general information.
+
 ✅ User-Friendly Interface
 
 🔹 Clean and intuitive design.
@@ -27,6 +31,7 @@ This app allows you to manage a series catalog in a visual and interactive way u
 🔹 Easy navigation and content management.
 
 # 🏗️ Technologies Used
+
 🅰️ Angular – Frontend framework for a smooth experience.
 
 🟦 TypeScript – Typed code for greater robustness.
@@ -54,7 +59,14 @@ Make sure you have Node.js and Angular CLI installed.
 4️⃣ Open in your browser: http://localhost:4200
 
 # 📸 Screenshots
-(Add images of the app in action here.)
+![image](https://github.com/user-attachments/assets/a44182d5-5682-44f3-9014-dac2bf2c11aa)
+
+![image](https://github.com/user-attachments/assets/17d7e0bd-512d-4d54-9adf-f710252e09b4)
+
+![image](https://github.com/user-attachments/assets/681c6778-ab2e-4d3a-a4aa-4998d8e2c222)
+
+
+
 
 # 🤝 Contributions
 Pull requests are welcome! If you have ideas or improvements, feel free to open an issue or fork the project.
