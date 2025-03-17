@@ -54,7 +54,9 @@ export class MovieTreeNodeComponent {
   }
 
   addNode(newNodename: string): void{
-    this.nodeAdministrationService.addChildNode(this.data, newNodename, this.completeNode);
+    if(newNodename.length !== 0){
+      this.nodeAdministrationService.addChildNode(this.data, newNodename, this.completeNode);
+    }
   }
 
   deleteNode(): void {

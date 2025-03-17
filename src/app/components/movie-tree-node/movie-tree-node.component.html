@@ -24,7 +24,12 @@
             </div>
             <div class="movie-tree-node__add-node" *appShowIfIsNotExample="isExample">
                 <input class="top" placeholder="Add new node..."  [(ngModel)]="newNodeName"/>
-                <button (click)="addNode(newNodeName)" width="">Add Node</button>
+                @if(newNodeName.length > 0){
+                    <button (click)="addNode(newNodeName)" width="">Add Node</button>
+                }
+                @else {
+                    <span style="color: red;">Please, set the name of the field.</span>
+                }
             </div>
         }
         @else{
@@ -33,7 +38,12 @@
             </div>
             <div class="movie-tree-node__add-node" *appShowIfIsNotExample="isExample">
                 <input class="top" placeholder="Add new node..."  [(ngModel)]="newNodeName"/>
-                <button (click)="addNode(newNodeName)">Add Node</button>
+                @if(newNodeName.length > 0){
+                    <button (click)="addNode(newNodeName)" width="">Add Node</button>
+                }
+                @else {
+                    <span style="color: red; ">Please, set the name of the field.</span>
+                }
             </div>
         }
     }

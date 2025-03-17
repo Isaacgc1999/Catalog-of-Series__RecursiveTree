@@ -5,7 +5,7 @@
     &__example{
         display: flex;
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 1.5rem;
 
         &__title{
             font-family: 'Poppins', sans-serif;
@@ -70,7 +70,7 @@
     &__custom{
         display: flex;
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 1.5rem;
         
         &__title{
             display: flex;
@@ -95,7 +95,6 @@
 
         &__input{
             border-radius: 10px;
-            margin-bottom: 16px;
             border: 1px solid var(--app-font-white-pure-color);
             color: var(--app-font-grey-color);
     
@@ -116,6 +115,7 @@
 
             &__add{
                 display: flex;
+                align-items: center;
                 gap: 0.4rem;
             }
         }

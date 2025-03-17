@@ -17,7 +17,12 @@
       }
       <div class="movie-tree__custom__body__add">
         <input class="top" placeholder="Add new node..."  [(ngModel)]="newNodeName2"/>
-        <button (click)="addNode(newNodeName2, moviesWithTree2)">Add Node</button>
+        @if(newNodeName2.length > 0){
+          <button (click)="addNode(newNodeName2, moviesWithTree2)">Add Node</button>
+        }
+        @else {
+            <span style="color: red;">Please, set the name of the field.</span>
+        }
       </div>
     </div>
   </div>
