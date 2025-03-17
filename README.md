@@ -1,59 +1,63 @@
-# AngularTest
+# 📺 Series Catalogue App
+Welcome to the Series Catalogue App 🎬🍿. 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+This app allows you to manage a series catalog in a visual and interactive way using recursive trees.
 
-## Development server
+# 🚀 Features
+✅ Example Tree
 
-To start a local development server, run:
+🔹 Contains predefined popular series.
 
-```bash
-ng serve
-```
+🔹 Allows you to search for episodes and seasons.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🔹 Nodes cannot be added or deleted.
 
-## Code scaffolding
+✅ Custom Tree
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+🔹 Build your own catalog from scratch.
 
-```bash
-ng generate component component-name
-```
+🔹 Add and organize series, seasons, and episodes.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+🔹 Ability to search content within the tree.
 
-```bash
-ng generate --help
-```
+✅ User-Friendly Interface
 
-## Building
+🔹 Clean and intuitive design.
 
-To build the project run:
+🔹 Easy navigation and content management.
 
-```bash
-ng build
-```
+# 🏗️ Technologies Used
+🅰️ Angular – Frontend framework for a smooth experience.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+🟦 TypeScript – Typed code for greater robustness.
 
-## Running unit tests
+🎨 SASS – Modular and reusable styles.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+# 📦 Installation
 
-```bash
-ng test
-```
+Make sure you have Node.js and Angular CLI installed.
 
-## Running end-to-end tests
+1️⃣ Clone the repository:
 
-For end-to-end (e2e) testing, run:
+🔹 git clone https://github.com/your-user/series-catalogue.git  
 
-```bash
-ng e2e
-```
+🔹 cd series-catalogue
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+2️⃣ Install dependencies:
 
-## Additional Resources
+🔹 npm install
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3️⃣ Run the app in development mode:
+
+🔹 ng serve
+
+4️⃣ Open in your browser: http://localhost:4200
+
+# 📸 Screenshots
+(Add images of the app in action here.)
+
+# 🤝 Contributions
+Pull requests are welcome! If you have ideas or improvements, feel free to open an issue or fork the project.
+
+# 📜 License
+This project is licensed under the MIT license.
