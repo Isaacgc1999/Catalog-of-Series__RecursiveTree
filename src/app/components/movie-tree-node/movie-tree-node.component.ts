@@ -27,20 +27,14 @@ export class MovieTreeNodeComponent {
   @Input() completeNode!: NodeTree[];
   @Input() isExample: boolean = false;
   @Output() removeNode = new EventEmitter<NodeTree>();
-  isExpanded: boolean = false;
   newNodeName: string = '';
   readonly dialog = inject(MatDialog);
   readonly nodeAdministrationService = inject(NodeAdministrationService);
 
   toggleExpand() {
-    console.log("this.data.isExpanded ", this.data.isExpanded);
-    console.log("this.data.node ", this.data.node);
-    console.log("this.data.node.length > 0: ", this.data.node?.length);
-
     if (!this.data.isExpanded && this.data.node && this.data.node.length > 0) {
       console.log(this.data); 
-      // this.isExpanded = !this.isExpanded;
-      this.data.isExpanded = !this.isExpanded;
+      this.data.isExpanded = !this.data.isExpanded;
     }
   }
 

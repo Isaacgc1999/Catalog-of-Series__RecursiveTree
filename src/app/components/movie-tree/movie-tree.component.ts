@@ -29,7 +29,7 @@ export class MovieTreeComponent {
 
   constructor() {
     this.moviesWithTree = this.nodeAdministrationService.createTree(this.moviesWithTree);
-    }
+  }
 
   get filterCatalogue(): NodeTree[] {
     return this.filterCatalogueService.filterTree(this.moviesWithTree, this.searchQuery);
