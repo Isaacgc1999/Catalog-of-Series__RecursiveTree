@@ -1,7 +1,7 @@
 <div class="movie-tree-node">
     <div class="movie-tree-node__group">
         <div class="movie-tree-node__group__node-content">
-            <i (click)="toggleExpand()" class="material-icons">arrow_right</i>
+            <i (click)="data.isExpanded = !data.isExpanded" class="material-icons">arrow_right</i>
             <div class="movie-tree-node__group__node-content__name" (click)="openNodeDetails()">
                 {{ data.nodeName }}
             </div>        
@@ -12,7 +12,7 @@
             <button class="movie-tree-node__group__node-actions" (click)="deleteNode()">Delete</button>
         </ng-container>
     </div>
-    @if(isExpanded){
+    @if(data.isExpanded){
         @if(data.node && data.node.length > 0){
             <div class="movie-tree-node__node-children">
                 <app-movie-tree-node

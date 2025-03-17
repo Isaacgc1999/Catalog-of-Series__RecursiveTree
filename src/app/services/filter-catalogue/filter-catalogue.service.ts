@@ -17,7 +17,7 @@ export class FilterCatalogueService {
     return nodes.reduce((filtered: NodeTree[], node) => {
       const filteredChildren = node.node ? this.filterTree(node.node, queryToLower) : [];
       if (node.nodeName.toLowerCase().includes(queryToLower) || filteredChildren.length > 0) {
-        filtered.push({ ...node, node: filteredChildren });
+        filtered.push({ ...node, node: filteredChildren, isExpanded: true });
       }
       return filtered;
     }, []);

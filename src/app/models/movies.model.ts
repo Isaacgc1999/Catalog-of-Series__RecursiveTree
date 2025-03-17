@@ -4,6 +4,7 @@ export interface NodeTree {
     icon: string;
     parentId?: number;
     level: number;
+    isExpanded?: boolean;
     node?: NodeTree[];
 }
 

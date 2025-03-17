@@ -33,7 +33,15 @@ export class MovieTreeNodeComponent {
   readonly nodeAdministrationService = inject(NodeAdministrationService);
 
   toggleExpand() {
-    this.isExpanded = !this.isExpanded;
+    console.log("this.data.isExpanded ", this.data.isExpanded);
+    console.log("this.data.node ", this.data.node);
+    console.log("this.data.node.length > 0: ", this.data.node?.length);
+
+    if (!this.data.isExpanded && this.data.node && this.data.node.length > 0) {
+      console.log(this.data); 
+      // this.isExpanded = !this.isExpanded;
+      this.data.isExpanded = !this.isExpanded;
+    }
   }
 
   openNodeDetails(): void{

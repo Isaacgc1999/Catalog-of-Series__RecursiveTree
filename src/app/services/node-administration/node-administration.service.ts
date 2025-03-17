@@ -41,7 +41,8 @@ export class NodeAdministrationService {
         nodeName: newNodename,
         node: [],
         icon: IconLevel[0],
-        level: this.assignLevels(node)
+        level: this.assignLevels(node),
+        isExpanded: false
     });
     }
 
@@ -53,7 +54,8 @@ export class NodeAdministrationService {
           nodeName: newNodename,
           node: [],
           icon: IconLevel[data.level + 1],
-          level: data.level + 1
+          level: data.level + 1,
+          isExpanded: false
       });
       }
     }
